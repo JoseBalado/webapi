@@ -2,7 +2,7 @@ using System;
 
 namespace webapi
 {
-    public class WeatherForecast
+    public class User
     {
         public string name { get; set; }
 
