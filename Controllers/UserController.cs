@@ -8,10 +8,11 @@ using Microsoft.Extensions.Logging;
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("api/getsuers")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         [HttpGet]
+        [Route("[action]")]
         public User GetUsers()
         {
             var user = new User
