@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
 using webapi.Models;
 
 namespace webapi.Controllers
@@ -25,13 +26,9 @@ namespace webapi.Controllers
         public User getUser(int id)
         {
             Console.WriteLine("Get user number: " + id);
-            var user = new User
-            {
-                id = 4,
-                name = "Jose",
-                email = "jose@gmail.com",
-                password = "password"
-            };
+
+            var user = users.Single(user => user.id == id);
+            Console.WriteLine(JsonSerializer.Serialize(user));
 
             return user;
         }
