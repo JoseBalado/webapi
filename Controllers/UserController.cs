@@ -10,7 +10,7 @@ using webapi.Models;
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api")]
     public class UserController : ControllerBase
     {
          static volatile List<User> users = new List<User>
@@ -49,6 +49,13 @@ namespace webapi.Controllers
             Console.WriteLine("Post user: " + JsonSerializer.Serialize(user));
             users.Add(user);
             return user;
+        }
+
+        [HttpDelete]
+        [Route("[action]/{id}")]
+        public User deleteUser(int id)
+        {
+            return users[0];
         }
     }
 }
