@@ -41,5 +41,14 @@ namespace webapi.Controllers
 
             return users;
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public User postUser(User user)
+        {
+            Console.WriteLine("Post user: " + JsonSerializer.Serialize(user));
+            users.Add(user);
+            return user;
+        }
     }
 }
