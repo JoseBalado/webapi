@@ -55,7 +55,10 @@ namespace webapi.Controllers
         [Route("[action]/{id}")]
         public User deleteUser(int id)
         {
-            return users[0];
+            Console.WriteLine("Delete user: " + id);
+            var user = users.SingleOrDefault(user => user.id == id);
+            users.Remove(user);
+            return user;
         }
     }
 }
