@@ -12,9 +12,10 @@ namespace webapi.Controllers
     public class UserController : ControllerBase
     {
         [HttpGet]
-        [Route("[action]")]
-        public User GetUsers()
+        [Route("[action]/{id}")]
+        public User getUser(int id)
         {
+            Console.WriteLine("User number: " + id);
             var user = new User
             {
                 name = "Jose",
