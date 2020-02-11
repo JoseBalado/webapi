@@ -51,6 +51,17 @@ namespace webapi.Controllers
             return user;
         }
 
+        [HttpPut("{id}")]
+        [Route("[action]")]
+        public User putUser(User putUser)
+        {
+            Console.WriteLine("Put user: " + putUser.id);
+            var user = users.SingleOrDefault(user => user.id == putUser.id);
+            users.Remove(user);
+            users.Add(putUser);
+            return user;
+        }
+
         [HttpDelete]
         [Route("[action]/{id}")]
         public User deleteUser(int id)
