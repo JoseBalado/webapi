@@ -13,7 +13,7 @@ namespace webapi.Controllers
     [Route("api")]
     public class UserController : ControllerBase
     {
-         static volatile List<User> users = new List<User>
+        static volatile List<User> users = new List<User>
          {
               new User { id = 1, name="Vithal Wadje",email="Mumbai@gmail.com",password="99999999999" },
               new User { id = 2, name = "Sudhir Wadje", email = "Latur@gmail.com", password = "88888888888888888888" },

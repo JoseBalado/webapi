@@ -3,23 +3,23 @@ using webapi.Models;
 
 namespace webapi
 {
-  public class WebapiContext : DbContext
-  {
-    public DbSet<User> User { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public class WebapiContext : DbContext
     {
-      optionsBuilder.UseMySQL("server=localhost;database=webapi_database;user=dotnetuser;password=dotnetpassword");
-    }
+        public DbSet<User> User { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-      base.OnModelCreating(modelBuilder);
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL("server=localhost;database=webapi_database;user=dotnetuser;password=dotnetpassword");
+        }
 
-      modelBuilder.Entity<User>(entity =>
-      {
-        entity.HasKey(e => e.id);
-      });
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.id);
+            });
+        }
     }
-  }
 }

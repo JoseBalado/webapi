@@ -10,41 +10,41 @@ using webapi.Models;
 
 namespace webapi
 {
-  public class Program
-  {
-    public static void Main(string[] args)
+    public class Program
     {
-        InsertData();
-      CreateHostBuilder(args).Build().Run();
-
-    }
-
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-              webBuilder.UseStartup<Startup>();
-            });
-
-    private static void InsertData()
-    {
-      using (var context = new WebapiContext())
-      {
-        // Creates the database if not exists
-        context.Database.EnsureCreated();
-
-        // Adds an user
-        var user = new User
+        public static void Main(string[] args)
         {
-          id = 34,
-          name = "Mariner Books"
-        };
-        context.User.Add(user);
+            InsertData();
+            CreateHostBuilder(args).Build().Run();
 
-        // Saves changes
-        context.SaveChanges();
-      }
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+
+        private static void InsertData()
+        {
+            using (var context = new WebapiContext())
+            {
+                // Creates the database if not exists
+                context.Database.EnsureCreated();
+
+                // Adds an user
+                var user = new User
+                {
+                    id = 34,
+                    name = "Mariner Books"
+                };
+                context.User.Add(user);
+
+                // Saves changes
+                context.SaveChanges();
+            }
+        }
+
     }
-
-  }
 }

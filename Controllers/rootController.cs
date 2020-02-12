@@ -14,7 +14,7 @@ namespace webapi.Controllers
         [HttpGet]
         public string helloWorld()
         {
-          return "Hello from Net Core";
+            return "Hello from Net Core";
         }
     }
 }
