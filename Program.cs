@@ -6,21 +6,45 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using webapi.Models;
 
 namespace webapi
 {
-    public class Program
+  public class Program
+  {
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+        InsertData();
+      CreateHostBuilder(args).Build().Run();
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
     }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+              webBuilder.UseStartup<Startup>();
+            });
+
+    private static void InsertData()
+    {
+      using (var context = new WebapiContext())
+      {
+        // Creates the database if not exists
+        context.Database.EnsureCreated();
+
+        // Adds an user
+        var user = new User
+        {
+          id = 34,
+          name = "Mariner Books"
+        };
+        context.User.Add(user);
+
+        // Saves changes
+        context.SaveChanges();
+      }
+    }
+
+  }
 }
