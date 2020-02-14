@@ -9,7 +9,7 @@ namespace webapi
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=webapi_database;user=dotnetuser;password=dotnetpassword");
+            optionsBuilder.UseMySQL("server=localhost;port=3306;database=webapi_database;user=dotnetuser;password=dotnetpassword");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

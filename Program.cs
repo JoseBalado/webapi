@@ -36,10 +36,10 @@ namespace webapi
                 // Adds an user
                 var user = new User
                 {
-                    id = 34,
-                    name = "Mariner Books"
+                    id = 35,
+                    name = "My Books"
                 };
-                context.User.Add(user);
+                // context.User.Add(user);
 
                 // Saves changes
                 context.SaveChanges();
