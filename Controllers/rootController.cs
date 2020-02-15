@@ -12,9 +12,9 @@ namespace webapi.Controllers
     [Route("")]
     public class rootController : ControllerBase
     {
-        private readonly webapi.WebapiContext _context;
+        private readonly WebapiContext _context;
 
-        public rootController(webapi.WebapiContext context)
+        public rootController(WebapiContext context)
         {
             _context = context;
         }
