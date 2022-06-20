@@ -25,7 +25,7 @@ CREATE DATABASE users_database;
 
 ### Create a different user from root, the one used by Spring Boot:
 create user 'dotnetuser'@'%' identified by 'dotnetpassword';  
-grant all on users_database.* to 'springuser'@'%';
+grant all on users_database.* to 'dotnetuser'@'%';
 
 ## Useful docker commands
 ### Stop docker container
