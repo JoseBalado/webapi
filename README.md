@@ -24,7 +24,7 @@ FLUSH PRIVILEGES;
 CREATE DATABASE users_database;
 
 ### Create a different user from root, the one used by Spring Boot:
-create user 'springuser'@'%' identified by 'ThePassword';  
+create user 'dotnetuser'@'%' identified by 'dotnetpassword';  
 grant all on users_database.* to 'springuser'@'%';
 
 ## Useful docker commands
